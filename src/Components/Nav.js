@@ -6,13 +6,6 @@ const Nav = () => {
 
     const [topics, setTopics] = useState([])
 
-
-
-    // NEED TO FIX BACKEND TOPIC QUERY BEFORE I CAN SET UP NAV TO ARTICLES BY TOPIC
-
-    //const { topics } = useParams();
-
-
     useEffect(() => {
         getTopics().then((dataFromApi) => {
             return dataFromApi
@@ -21,12 +14,13 @@ const Nav = () => {
                 setTopics(dataFromApi)
             })
     }, [])
- 
-    return <nav>
-        <Link to="/account" key="account-link">Account</Link>
-        <Link to="/" key="all-link">All</Link>
+
+    return <nav className="Nav">
+        <Link className="Nav-Link" to="/account" key="account-link">Account</Link>
+        <Link className="Nav-Link" to="/" key="all-link">All</Link>
         {topics.map((item) => {
-            return <Link to={item.slug} key={item.slug}>{item.slug}</Link>
+            return <Link className="Nav-Link" to={item.slug} key={item.slug}>
+                {item.slug}</Link>
         })}
     </nav>;
 };

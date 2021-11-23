@@ -5,8 +5,8 @@ const Account = () => {
 
     const { currentUser, setCurrentUser } = useContext(UserContext);
 
-    return <div>
-        <h1 key="CurrentUsername">Current Account User: {currentUser}</h1>;
+    return <div className="Account">
+        <h1 key="CurrentUsername">Current Account User: {currentUser}</h1>
         <button
             onClick={() => {
                 setCurrentUser('Barry');
@@ -14,7 +14,7 @@ const Account = () => {
                 Sign in as Barry</button>
                 <button
             onClick={() => {
-                setCurrentUser('Lily');
+                setCurrentUser('Lily')
             }}>
                 Sign in as Lily</button>
 

@@ -29,8 +29,8 @@ function App() {
         <Route path="/" element={<ArticlesList />} />
         <Route path="/:topic" element={<ArticlesList />} />
         <Route path="/account" element={<Account />} />
-        <Route path="/article" element={<SingleArticle />} />
-        <Route path="/article/:articleid" element={<SingleArticleComments />} />
+        <Route path="/article/:articleid" element={<SingleArticle />} />
+        <Route path="/article/:articleid/comments" element={<SingleArticleComments />} />
       </Routes>
     </div>
     </UserContext.Provider>
