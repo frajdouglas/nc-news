@@ -111,3 +111,9 @@
 ul {
   list-style-type : none;
 }
+
+.CurrentUsername {
+  color : maroon;
+  margin-left : 50px;
+  font-weight: bold;
+}

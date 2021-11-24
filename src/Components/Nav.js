@@ -1,8 +1,11 @@
-import { Link, useParams } from 'react-router-dom';
-import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
+import { useEffect, useState, useContext } from "react";
 import { getTopics } from "../utils/api";
+import { UserContext } from "../contexts/user";
 
 const Nav = () => {
+    
+    const { currentUser } = useContext(UserContext);
 
     const [topics, setTopics] = useState([])
 
@@ -22,6 +25,10 @@ const Nav = () => {
             return <Link className="Nav-Link" to={item.slug} key={item.slug}>
                 {item.slug}</Link>
         })}
+        <br/>
+        <br/>
+        <br/>
+        <p key="CurrentUsername" className='CurrentUsername'>Logged in as: {currentUser}</p>
     </nav>;
 };
 

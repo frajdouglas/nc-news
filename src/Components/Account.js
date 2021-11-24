@@ -1,22 +1,20 @@
 import { UserContext } from "../contexts/user";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 
 const Account = () => {
 
-    const { currentUser, setCurrentUser } = useContext(UserContext);
+    const { setCurrentUser } = useContext(UserContext);
+    const validUsers = ['tickle122','grumpy19','happyamy2016','cooljmessy','weegembump','jessjelly','INVALID USER - FOR TESTING'];
+
 
     return <div className="Account">
-        <h1 key="CurrentUsername">Current Account User: {currentUser}</h1>
-        <button
+        {validUsers.map((item)=> {
+            return <button
             onClick={() => {
-                setCurrentUser('Barry');
+                setCurrentUser(item);
             }}>
-                Sign in as Barry</button>
-                <button
-            onClick={() => {
-                setCurrentUser('Lily')
-            }}>
-                Sign in as Lily</button>
+                Sign in as {item}</button>
+        })}
 
     </div>
 

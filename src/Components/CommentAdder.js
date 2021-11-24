@@ -1,23 +1,22 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useParams } from "react-router-dom";
+import { UserContext } from "../contexts/user";
+import { addComment } from "../utils/api";
 
-const CommentAdder = ({ setComments }) => {
+const CommentAdder = () => {
+    
+    const { currentUser } = useContext(UserContext);
 
-    const [currentComment, setCurrentComment] = useState('')
+    const { articleid } = useParams();
+
+    const [commentToPost, setCommentToPost] = useState({
+        username: currentUser,
+        body: 'vitriol'
+    })
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        setComments((existingComments) => {
-            const newCommentEntry = {
-                article_id: "GET THIS FROM PARAMS",
-                author: "NEED TO UPDATE THIS TO SIGNED IN USER",
-                body: currentComment,
-                comment_id: "NEED A WAY TO CALCULATE THIS FROM EXISTING DATA",
-                created_at: "ADD CURRENT TIMESTAMP",
-                votes: 0
-            }
-            return [...existingComments, newCommentEntry]
-        });
-        setCurrentComment('');
+        console.log(commentToPost);
+        addComment(articleid,commentToPost);
     };
 
 
@@ -31,9 +30,13 @@ const CommentAdder = ({ setComments }) => {
                 type='text'
                 name='newComment'
                 id='newComment'
-                value={currentComment}
+                value={commentToPost.body}
                 onChange={(e) => {
-                    setCurrentComment(e.target.value)
+                    let newCommentToPost = {
+                        username: currentUser,
+                        body: e.target.value
+                    }
+                    setCommentToPost(newCommentToPost)
                 }}
                 required />
         </fieldset>
