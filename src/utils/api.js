@@ -11,7 +11,6 @@ const redditApi = axios.create({
   };
 
   export const getArticles = (topic, sort_by) => {
-    console.log(sort_by,topic)
     return redditApi.get("/articles", { params : { topic : topic, sort_by : sort_by}})
     .then((res) => {
       return res.data.articles;
@@ -40,7 +39,6 @@ const redditApi = axios.create({
   };
 
   export const deleteComment = (comment_id) => {
-    console.log(comment_id)
     return redditApi.delete(`/comments/${comment_id}`)
     .then((res) => {
       return res;

@@ -1,21 +1,41 @@
 import { useContext } from "react";
-import { deleteComment } from "../utils/api";
 import { UserContext } from "../contexts/user";
+import { addVote } from "../utils/api";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
 
-const CommentDeleter = ({ comment_id, author }) => {
-    
-    const { currentUser } = useContext(UserContext);
+
+const ArticleVoteButton = ({ SingleArticle }) => {
+
+    const { currentUser, permittedUsers } = useContext(UserContext);
+    const [addedVotes, setAddedVotes] = useState(0);
+    const { articleid } = useParams();
     const handleClick = () => {
-        deleteComment(comment_id).then(() => {
-            window.location.reload()
+        setAddedVotes((prevVotes) => {
+            return prevVotes + 1
         })
-
+        addVote(articleid)
+            .catch((err) => {
+                setAddedVotes((currCount) => currCount - 1);
+            })
     }
 
-    if(author === currentUser){
-        return <button onClick={handleClick} className="CommentDeleter">DELETE</button>
-    }
-    return <p key="blank-delete-return"></p>
-};
+    if (SingleArticle.author === currentUser || !permittedUsers.includes(currentUser)) {
+        return <div>
+            Votes: {SingleArticle.votes + addedVotes}
+            <br />
+            <br />
+            <br />
+        </div>
+    } else {
 
-export default CommentDeleter;
+        return <div>
+            Votes: {SingleArticle.votes + addedVotes}
+            <br />
+            <br />
+            <br />
+            <button key="add-vote-button" onClick={handleClick}>Add to vote!</button>
+        </div>
+    };
+}
+export default ArticleVoteButton;

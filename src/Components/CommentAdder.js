@@ -11,20 +11,23 @@ const CommentAdder = () => {
 
     const [commentToPost, setCommentToPost] = useState({
         username: currentUser,
-        body: 'vitriol'
+        body: ''
     })
 
     const handleSubmit = (e) => {
-        console.log(commentToPost);
-        addComment(articleid,commentToPost);
+        e.preventDefault()
+        addComment(articleid,commentToPost)
+        .then(() => {
+            window.location.reload()
+        })
     };
 
 
     return <form onSubmit={handleSubmit} className="CommentAdder">
         <fieldset>
-            <legend> Add new comment HERE
+            <legend> Add new comment here!
             </legend>
-            <label htmlFor='comments'> Add Comment
+            <label htmlFor='comments'> Add Comment:  
             </label>
             <input
                 type='text'

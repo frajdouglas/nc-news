@@ -11,16 +11,10 @@ import SingleArticle from './Components/SingleArticle.js'
 import ErrorPage from './Components/ErrorPage';
 
 
-
-
-
-
-
-
 function App() {
 
   const [currentUser, setCurrentUser] = useState('tickle122');
-  const [permittedUsers, setPermittedUsers] = useState(['tickle122', 'grumpy19', 'happyamy2016', 'cooljmessy', 'weegembump', 'jessjelly', 'INVALID USER - FOR TESTING']);
+  const [permittedUsers, setPermittedUsers] = useState(['tickle122', 'grumpy19', 'happyamy2016', 'cooljmessy', 'weegembump', 'jessjelly']);
 
   return (
     <UserContext.Provider value={{ currentUser, setCurrentUser, permittedUsers, setPermittedUsers }}>
