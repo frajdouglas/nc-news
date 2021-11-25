@@ -36,7 +36,7 @@ const ArticlesList = () => {
           }}
         >
           <option key="sort_by" value="">
-          sort_by
+          Sort by attribute
           </option>
           <option key="created_at" value="created_at">created_at</option>
           <option key="votes" value="votes">votes</option>
@@ -65,21 +65,3 @@ const ArticlesList = () => {
 
 export default ArticlesList;
 
-
-
-// "queries": [
-//     "author",
-//     "topic",
-//     "sort_by",
-//     "order"
-
-
-// "title": "Seafood substitutions are increasing",
-// "topic": "cooking",
-// "author": "weegembump",
-// "body": "Text from the article..",
-// "created_at": 1527695953341
-
-// date created
-// comment_count
-// votes

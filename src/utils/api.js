@@ -45,7 +45,6 @@ const redditApi = axios.create({
     });
   };
 
-
   export const addComment = (articleid,commentObject) => {
     return redditApi.post(`/articles/${articleid}/comments`, commentObject)
     .then((res) => {

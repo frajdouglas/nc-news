@@ -12,6 +12,8 @@ const SingleArticleComments = () => {
 
     const [isLoading, setIsLoading] = useState(true);
 
+    const [postedComment, setCommentsChange] = useState(0);
+
     const [comments, setComments] = useState(
         [{
             username: 'fra',
@@ -25,7 +27,7 @@ const SingleArticleComments = () => {
             setComments(dataFromApi)
             setIsLoading(false)
         })
-    }, [articleid])
+    }, [articleid,postedComment])
 
     if (isLoading) return <p>Loading...</p>
     if((permittedUsers.includes(currentUser))){
@@ -45,10 +47,10 @@ const SingleArticleComments = () => {
                 <br />
                 <br />
                 <br />
-                <CommentDeleter comment_id={item.comment_id} author={item.author} />
+                <CommentDeleter comment_id={item.comment_id} author={item.author} setCommentsChange={setCommentsChange} />
             </ul>
         })}
-        <CommentAdder setComments={setComments} />
+        <CommentAdder setCommentsChange={setCommentsChange} />
     </div>
     } else {
         return <div className="Comments">
