@@ -2,7 +2,7 @@
 
 ## React Application Link
 
-The application is hosted using Netlify, follow this url to visit the application: PLACEHOLDER
+The application is hosted using Netlify, follow this url to visit the application: https://hopeful-bassi-c67178.netlify.app/
 
 ## Summary
 
