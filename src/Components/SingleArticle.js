@@ -23,7 +23,7 @@ const SingleArticle = () => {
     if (isError) return <p>No articles exist for this id</p>
     if (isLoading) return <p>Loading...</p>
     
-        return <div className="SingleArticle">
+        return <section id="SingleArticle" className="mainDisplay">
             Title: {SingleArticle.title}
             <br />
             <br />
@@ -44,7 +44,7 @@ const SingleArticle = () => {
             <Link to={`/article/${articleid}/comments`} key="comments-link">
                 <button>GO TO COMMENTS</button>
             </Link>
-            </div>
+            </section>
 }
 
 export default SingleArticle;

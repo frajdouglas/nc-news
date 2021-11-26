@@ -12,7 +12,8 @@ const Account = () => {
             return <button
             onClick={() => {
                 setCurrentUser(item);
-            }}>
+            }}
+            className="SignInButton">
                 Sign in as {item}</button>
         })}
 

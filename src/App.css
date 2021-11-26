@@ -1,34 +1,39 @@
 .App {
   text-align: center;
-  display : grid;
   min-height :  100vh;
-  grid-template-columns: 100%;
+  width: 100vw;
   grid-template-rows: min-content min-content auto;
+  display: grid; 
+  grid-template-columns: 100%; 
   grid-template-areas: 
     'Header'
     'Nav'
-    'ArticlesList';
+    'mainBody'; 
 }
 
 .Header {
+  grid-area: Header;
+  font-size: 50px;
+  height: 60px;
   border : solid blue 1px;
   margin : 0px;
   font-family: "Lucida Console", "Courier New", monospace;
-  padding : 10px
-
+  width: 100vw;
+  text-align: center;
+  padding:20px;
 }
 
 .Nav {
+  grid-area: Nav;
+  font-size: 30px;
+  margin : 0px;
+  height: 50px;
   border : solid Green 1px;
   font-family: "Lucida Console", "Courier New", monospace;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
   flex-direction: row;
-  word-spacing: 10px;
-  margin : 0px;
-  padding : 10px;
-
 }
 
 .Nav-Link {
@@ -37,10 +42,19 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  word-spacing: 10px;
   margin : 0px;
-  padding : 5px;
+  padding : 15px;
+}
 
+.mainBody {
+  grid-area: mainBody;
+  display: grid;
+  width: 100vw;
+}
+
+#sortByDropdown {
+  height: 50px;
+  font-size: 20px;
 }
 
 .ArticlesList {
@@ -48,16 +62,21 @@
   display : flex;
   flex-direction : row;
   flex-wrap : wrap;
+  justify-content: center;
+  width: 100vw;
+  min-width: 100vw;
 }
 
 .ArticleItem {
   border : solid black 1px;
   padding : 15px;
   margin : 4px;
-  width: 30vw;
+  width: 20vw;
+  min-width: 350px;
+  max-height: 20vw;
+  min-height: 270px; 
   border-radius: 5px;
   box-shadow: 1px 1px;
-
 }
 
 .ArticleTitle {
@@ -65,14 +84,12 @@
   font-family: "Lucida Console", "Courier New", monospace;
   font-weight: bold;
   word-wrap: break-word;
-
-
 }
 
-.SingleArticle {
+#SingleArticle {
   border : solid gold 1px;
   padding : 15px;
-  margin : 4px;
+  margin : 0px;
   width: 100vw;
   border-radius: 5px;
   box-shadow: 1px 1px;
@@ -80,7 +97,6 @@
   font-family: "Lucida Console", "Courier New", monospace;
   font-weight: bold;
   word-wrap: break-word;
-
 }
 
 .Comments {
@@ -88,7 +104,7 @@
   display : flex;
   flex-direction : row;
   flex-wrap : wrap;
-
+  width: 100vw;
 }
 
 .CommentsItem {
@@ -99,21 +115,32 @@
   width: 30vw;
   border-radius: 5px;
   box-shadow: 1px 1px;
-
+  min-width: 256px;
+  max-height: 20vw;
+  min-height: 270px;  
 }
 
 .Account {
   border : solid salmon 1px;
   font-family: "Lucida Console", "Courier New", monospace;
+}
 
+#accountLink {
+  color : navy;
+  font-weight: bold;
+  margin-left: 40px;
+}
+
+#CurrentUsername {
+  margin-left: 70px;
+  color : maroon;
+}
+
+.SignInButton {
+  height: 40px;
+  margin:50px;
 }
 
 ul {
   list-style-type : none;
-}
-
-.CurrentUsername {
-  color : maroon;
-  margin-left : 50px;
-  font-weight: bold;
 }

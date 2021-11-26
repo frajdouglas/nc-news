@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import { UserContext } from "../contexts/user";
 import { addComment } from "../utils/api";
 
-const CommentAdder = ({setCommentsChange}) => {
-    
+const CommentAdder = ({ setCommentsChange }) => {
+
     const { currentUser } = useContext(UserContext);
 
     const { articleid } = useParams();
@@ -18,15 +18,15 @@ const CommentAdder = ({setCommentsChange}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        addComment(articleid,commentToPost).then(() => {
+        addComment(articleid, commentToPost).then(() => {
             setIsError(false)
             setCommentsChange((prevValue) => {
                 return prevValue + 1
-            }) 
+            })
         })
-        .catch((err) => {
-            setIsError(err)
-        })
+            .catch((err) => {
+                setIsError(err)
+            })
     };
 
 
@@ -34,7 +34,7 @@ const CommentAdder = ({setCommentsChange}) => {
         <fieldset>
             <legend> Add new comment here!
             </legend>
-            <label htmlFor='comments'> Add Comment:  
+            <label htmlFor='comments'> Add Comment:
             </label>
             <input
                 type='text'
@@ -52,7 +52,7 @@ const CommentAdder = ({setCommentsChange}) => {
         </fieldset>
         <button type='submit'>Submit</button>
     </form>
-    {isError ? <p>Sorry, there has been an error</p> : null}
+        {isError ? <p>Sorry, there has been an error</p> : null}
     </div>
 };
 

@@ -20,7 +20,7 @@ const ArticleVoteButton = ({ SingleArticle }) => {
             })
     }
 
-    if (SingleArticle.author === currentUser || !permittedUsers.includes(currentUser)) {
+    if (SingleArticle.author === currentUser || !permittedUsers.includes(currentUser) || addedVotes === 1) {
         return <div>
             Votes: {SingleArticle.votes + addedVotes}
             <br />
@@ -34,7 +34,7 @@ const ArticleVoteButton = ({ SingleArticle }) => {
             <br />
             <br />
             <br />
-            <button key="add-vote-button" onClick={handleClick}>Add to vote!</button>
+            <button key="add-vote-button" onClick={handleClick}>Upvote</button>
         </div>
     };
 }
