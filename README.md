@@ -20,9 +20,9 @@ To locally host this React application you must have a minimum Node.js version o
 Copy the commands below to complete the setup for this project:
 
 ```
-git clone https://github.com/frajdouglas/nc-news.git
+git clone https://github.com/frajdouglas/reddit_clone_frontend.git
 
-cd nc-news
+cd reddit_clone_frontend
 
 npm install 
 
