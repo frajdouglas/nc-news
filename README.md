@@ -15,7 +15,7 @@ To locally host this React application you must have a minimum Node.js version o
 -Clone repo into your desired directory.\
 -Change into the nc-news directory.\
 -Install dependencies.\
--Locally host React App.\
+-Locally host React App.
 
 Copy the commands below to complete the setup for this project:
 
